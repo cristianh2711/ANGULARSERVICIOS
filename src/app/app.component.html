@@ -1,0 +1,32 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="keyboard_arrow_right sidenav-button" (click)="isExpanded = !isExpanded"
+          [ngClass]="{'rotated': isExpanded}">keyboard_arrow_right</mat-icon>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/buscar" (click)="loadData()">
+        <mat-icon mat-list-icon class="">home</mat-icon>
+        <span *ngIf="isExpanded">Inicio</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/departamentos" (click)="loadData()">
+        <mat-icon mat-list-icon class="">local_offer</mat-icon>
+        <span *ngIf="isExpanded">Departamentos</span>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <div class="content">
+    <!--progress Bar-->
+    <mat-progress-bar *ngIf="progresbar" mode="indeterminate"></mat-progress-bar>
+
+    <mat-toolbar>
+      <h4>DTO/CD</h4>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
